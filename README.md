@@ -2,6 +2,7 @@
 
 _Experimental deployment of [Prototypo] on Docker._
 
+![Screenshot](http://i.imgur.com/s1CmXdy.png)
 [Prototypo]: http://prototypo.io
 
 ## Process
