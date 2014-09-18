@@ -11,6 +11,7 @@ RUN npm install -g grunt-cli bower
 RUN git clone --depth=1 git://github.com/byte-foundry/prototypo.git /app
 WORKDIR /app
 RUN npm install
+RUN /usr/bin/bower --allow-root install
 
 EXPOSE 9000
 CMD ["/usr/bin/grunt", "serve"]
