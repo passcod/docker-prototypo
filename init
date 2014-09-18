@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /bonnet
+couchdb &
+hoodie start -n
