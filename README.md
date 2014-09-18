@@ -10,16 +10,16 @@ _Experimental deployment of [Prototypo] on Docker._
 # Get the docker image
 $ docker pull passcod/prototypo
 
-# Create a folder to hold the hoodie data
+# Create a folder to persist the couchdb data
 $ mkdir /path/to/data/folder
 
 # Use the :init tag to initialise that folder
 # You'll need to enter a password for the admin
 # interface. When that's done, hit Ctrl-C.
-$ docker run -itv /path/to/data/folder:/bonnet/data passcod/prototypo:init
+$ docker run -itv /path/to/data/folder:/var/lib/couchdb passcod/prototypo:init
 
 # Launch the actual app!
-$ docker run -v /path/to/data/folder:/bonnet/data passcod/prototypo
+$ docker run -v /path/to/data/folder:/var/lib/couchdb passcod/prototypo
 
 # Look at the deets:
 $ docker ps
