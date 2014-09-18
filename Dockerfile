@@ -12,6 +12,7 @@ RUN npm install -g adhoc-cors-proxy bower grunt-cli hoodie-cli
 
 # Hoodie
 ENV COUCH_URL http://localhost:5984
+ENV HOODIE_BIND_ADDRESS 0.0.0.0
 VOLUME /var/lib/couchdb
 RUN /usr/bin/hoodie new bonnet
 
@@ -22,7 +23,7 @@ RUN npm install
 RUN /usr/bin/bower --allow-root install
 
 # Use our own Hoodie server
-RUN sed -i 's|http://prototypo.cloudapp.net|http://localhost:9001|' /app/app/scripts/app.js
+RUN sed -i "s|http://prototypo.cloudapp.net|http://' + location.hostname + ':9001|" /app/app/scripts/app.js
 
 # 9000: Prototypo, 6002: Hoodie Dash, 9001: Hoodie API
 EXPOSE 9000 6002 9001
