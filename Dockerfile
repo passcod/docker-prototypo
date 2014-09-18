@@ -27,5 +27,4 @@ RUN sed -i 's|http://prototypo.cloudapp.net|http://localhost:9001|' /app/app/scr
 # 9000: Prototypo, 6002: Hoodie Dash, 9001: Hoodie API
 EXPOSE 9000 6002 9001
 ADD start /
-ADD init /
 CMD /start

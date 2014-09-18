@@ -1,10 +1,9 @@
 #!/bin/bash
 couchdb &
-
-cd /bonnet
-hoodie start -n &
-
 corsproxy localhost:6001 --port 9001 --credentials &
 
 cd /app
-grunt serve
+grunt serve &
+
+cd /bonnet
+hoodie start -n

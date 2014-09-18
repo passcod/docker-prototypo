@@ -11,19 +11,11 @@ _Experimental deployment of [Prototypo] on Docker._
 $ docker pull passcod/prototypo
 
 # Create a folder to persist the couchdb data
-$ mkdir /path/to/data/folder
+$ mkdir /path/to/data
 
-# Use the /init script to initialise that folder
-# You'll need to enter a password for the admin
-# interface. When that's done, hit Ctrl-C.
-$ docker run -itv /path/to/data/folder:/var/lib/couchdb passcod/prototypo /init
-
-# Launch the actual app!
-$ docker run -v /path/to/data/folder:/var/lib/couchdb passcod/prototypo
-
-# Look at the deets:
-$ docker ps
-$ docker inspect container_name
+# Launch it. You'll have to enter a password
+# for the Hoodie Admin dashboard.
+$ docker run -itv /path/to/data:/var/lib/couchdb passcod/prototypo
 ```
 
 Now you should be able to connect to the container. Ports are:
@@ -32,7 +24,14 @@ Now you should be able to connect to the container. Ports are:
 - 6002 for the Hoodie admin dash
 - 9001 for the Hoodie API (+cors)
 
-Connect to the Hoodie admin dash, add a new user, and use those credentials
-to log in to Prototypo.
+Find out the address using:
+
+```bash
+$ docker ps
+$ docker inspect container_name | grep IPAddress
+```
+
+Connect to the Hoodie admin dash with the password you typed in,
+add a new user, and use those credentials to log in to Prototypo.
 
 Happy font creating!
